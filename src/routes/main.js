@@ -30,10 +30,16 @@ routes.get("/gallery", async(req, res)=>{
     }) 
 })
 routes.get("/about", async(req, res)=>{
-    res.render("about")
+    const mainpage = await Mainpage.find();
+    res.render("about",{
+        mainpage: mainpage,
+    })
 })
 routes.get("/product", async(req, res)=>{
-    res.render("product")
+    const product = await Product.find();
+    res.render("product",{
+        product: product
+    })
 })
 routes.get("/bloglist", async(req, res)=>{
     res.render("bloglist")
